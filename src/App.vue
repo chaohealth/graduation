@@ -3,18 +3,13 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <bottom-nav/>
   </div>
 </template>
 
 <script>
-import bottomNav from './components/bottom-nav'
 
 export default {
-  name: 'App',
-  components: {
-    bottomNav
-  }
+  name: 'App'
 }
 </script>
 

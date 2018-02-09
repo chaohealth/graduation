@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <mu-appbar class="home-header">
         <mu-content-block class="header-title">实习每一天</mu-content-block>
-        <mu-icon-button class="search-button" icon="search"/>
+        <mu-icon-button class="search-button" icon="search" @click="goSearch"/>
         <mu-text-field class="search-text" hintText="请输入搜索职位" underlineFocusClass="search-color" slot="right"/>
     </mu-appbar>
     
@@ -31,9 +31,9 @@
         <mu-flexbox-item  class="tab-flex">
             职位列表
         </mu-flexbox-item>
-        <mu-card class="workContent-first">
-            <div class="work-img"><img src="../assets/images/position_first.jpg" alt=""></div>
-            <mu-content-block class="work-position">
+        <mu-card class="workContent-first" @click.native="goWork">
+            <div class="work-img" ><img src="../assets/images/position_first.jpg" alt=""></div>
+            <mu-content-block class="work-position" >
                 <div class="position-top">
                     <span>优衣库实习生</span>
                     <span>03-20 更新</span>
@@ -130,27 +130,31 @@
         <mu-flexbox-item  class="tab-flex">
             实习动态
         </mu-flexbox-item>
-        <mu-card class="studyContent-first">
+        <mu-card class="studyContent-first" @click.native="goIdea">
             <img src="../assets/images/study_avatar.jpg" alt="">
             <p class="study-title">前端实习生</p>
             <p class="study-content">好想找一份前端工作，学会使用vue.js和node.js!</p>
-            <mu-content-block class="study-interactive">
-                <span class="study-likes">0喜欢·</span>
-                <span class="study-comments">0评论</span>
+            <mu-content-block class="study-interactive" >
+                <span class="study-likes">1喜欢·</span>
+                <span class="study-comments">1评论</span>
                 <div class="study-right">
-                    <mu-radio  name="like" nativeValue="simple" v-model="value"  class="demo-radio" uncheckIcon="favorite_border" checkedIcon="favorite"/>
-                    <mu-icon-button icon="comment" slot="right" class="study-button"/>
+                    <mu-checkbox uncheckIcon="favorite_border" checkedIcon="favorite"/>
+                    <!-- <mu-radio  name="like" nativeValue="simple" v-model="value"  class="demo-radio" uncheckIcon="favorite_border" checkedIcon="favorite"/> -->
+                    <mu-icon-button icon="comment" slot="right" class="study-button" />
                 </div>
             </mu-content-block>
         </mu-card>
-        <mu-float-button icon="add" class="add-button"/>
+        <mu-float-button icon="add" class="add-button" @click="goAdd"/>
     </div>
-    
+
+    <!-- 底部导航 -->
+    <bottom-nav/>
 </div>
 </template>
 
 <script>
 import Vue from 'vue'
+import bottomNav from '@/components/bottom-nav'
 import { Swipe, SwipeItem } from 'mint-ui';
 
 Vue.component('mt-swipe', Swipe);
@@ -165,11 +169,26 @@ export default {
             value: ''
     }
   },
+    components: {
+         bottomNav
+  },
     methods: {
         // 选项切换
         handleTabChange(val) {
             this.activeTab = val
-    }
+    },
+        goSearch() {
+            this.$router.push('/search');
+    },
+        goWork() {
+            this.$router.push('/work');
+    },
+        goIdea() {
+            this.$router.push('/idea');
+    },
+        goAdd() {
+            this.$router.push('/add');
+    }   
   }
 }
 

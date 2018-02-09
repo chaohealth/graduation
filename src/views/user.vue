@@ -6,31 +6,30 @@
 <!-- 状态 -->
     <mu-card class="user-info">
         <img src="../assets/images/user-avatar.png"/>
-        <p>登录/注册</p>
+        <p @click="goLogin">登录/注册</p>
     </mu-card>
 
 <!-- 选项 -->
     <mu-list class="user-list">
-        <mu-list-item>
+        <mu-list-item @click="goInfo">
             <img class="list-img" src="../assets/images/user_info.png" alt="">
             <span class="list-title">个人资料</span>
             <mu-icon class="list-icon" value="keyboard_arrow_right"/>
         </mu-list-item>
         <mu-divider/>
-        <mu-list-item>
+        <mu-list-item @click="goMessage">
             <img class="list-img" src="../assets/images/user_message.png" alt="">
-            <!-- <mu-badge class="list-badge" content="12" color="#f44336" circle/>  -->
             <span class="list-title">我的消息</span>
             <mu-icon class="list-icon" value="keyboard_arrow_right"/>
         </mu-list-item>
         <mu-divider/>
-        <mu-list-item>
+        <mu-list-item @click="goNote">
             <img class="list-img" src="../assets/images/user_note.png" alt="">
             <span class="list-title">我的周报</span>
             <mu-icon class="list-icon" value="keyboard_arrow_right"/>
         </mu-list-item>
         <mu-divider/>     
-        <mu-list-item>
+        <mu-list-item @click="goBind">
             <img class="list-img" src="../assets/images/user_teacher.png" alt="">
             <span class="list-title">绑定教师</span>
             <mu-icon class="list-icon" value="keyboard_arrow_right"/>
@@ -38,18 +37,41 @@
         <mu-divider/>
     </mu-list>
 
-<!-- 退出登录 -->
+    <!-- 退出登录 -->
     <mu-flat-button class="user-exit" label="退出登录" labelClass="exit-label"/>
 
+    <!-- 底部导航 -->
+    <bottom-nav/>
 </div>
 </template>
 
 <script>
+import bottomNav from '@/components/bottom-nav'
+
     export default {
         data() {
             return {}
         },
-
+        components: {
+            bottomNav
+        },
+        methods: {
+            goLogin() {
+                this.$router.push('/login');
+        },
+            goInfo() {
+                this.$router.push('/info')
+        },
+            goMessage() {
+                this.$router.push('/message')
+        }, 
+            goNote() {
+                this.$router.push('/note')
+        },   
+            goBind() {
+                this.$router.push('/bind')
+        },                  
+    }
 }
 
 </script>
@@ -105,11 +127,7 @@
     float: right;
     margin-top: 1%;
 }
-/* .list-badge {
-    position: absolute;
-    margin-top: -4%;
-    margin-left: -50%;
-} */
+
 
 /* 退出 */
 .user-exit {

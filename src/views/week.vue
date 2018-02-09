@@ -27,13 +27,22 @@
 
     <!-- 提交按钮 -->
     <mu-raised-button label="提交" class="week-button" />
+
+    <!-- 底部导航 -->
+    <bottom-nav/>
 </div>
 </template>
 
 <script>
+import bottomNav from '@/components/bottom-nav'
+
+
     export default {
         data() {
             return {}
+        },
+        components: {
+            bottomNav
         },
         methods: {
 
