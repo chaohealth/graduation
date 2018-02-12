@@ -162,12 +162,14 @@
     height: 90px;
     margin:  21% 8% 5% 8%;
     border: 1px solid #a1887f;
+    box-shadow: 1px 1px 1px #a1887f;
 }
 .review-idea img{
     float:left;
     width: 88px;
     height: 88px;  
 }
+
 .idea-name {
     position: absolute;
     margin-left: 30%;

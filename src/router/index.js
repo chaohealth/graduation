@@ -24,6 +24,7 @@ export default new Router({
     {
       path: '/',
       name: '默认',
+      redirect:{ path:'/home' },
       component: Home
     },
     {

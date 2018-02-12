@@ -9,8 +9,8 @@
     <mu-text-field class="password-text" type="password" hintText="密码"  underlineFocusClass="input-color" hintTextClass="input-hint" />       
 
     <!-- 选择 -->
-    <mu-radio label="学生" class="radio-first" nativeValue="student" labelClass="radio-label" iconClass="radio-icon" v-model="value" labelRight/>
-    <mu-radio label="教师" class="radio-second" nativeValue="teacher" labelClass="radio-label" iconClass="radio-icon" v-model="value" labelRight/>
+    <mu-radio label="学生" class="radio-first" nativeValue="student" labelClass="radio-label" iconClass="radio-icon" v-model="loginValue" labelRight/>
+    <mu-radio label="教师" class="radio-second" nativeValue="teacher" labelClass="radio-label" iconClass="radio-icon" v-model="loginValue" labelRight/>
 
     <!-- 按钮 -->
     <mu-raised-button label="登录" class="login-button" @click="showToast"/>
@@ -27,7 +27,7 @@
         data() {
             return {
                 toast: false,
-                value: '',
+                loginValue: '',
             }
         },
         methods: {

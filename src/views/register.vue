@@ -11,8 +11,8 @@
     <mu-text-field class="confirm-text" type="password" hintText="确认密码"  underlineFocusClass="input-color" hintTextClass="input-hint" />
     
     <!-- 选择 -->
-    <mu-radio label="学生" class="radio-one" nativeValue="student" labelClass="radio-label" iconClass="radio-icon" v-model="value" labelRight/>
-    <mu-radio label="教师" class="radio-two" nativeValue="teacher" labelClass="radio-label" iconClass="radio-icon" v-model="value" labelRight/>
+    <mu-radio label="学生" class="radio-one" nativeValue="student" labelClass="radio-label" iconClass="radio-icon" v-model="RegisterValue" labelRight/>
+    <mu-radio label="教师" class="radio-two" nativeValue="teacher" labelClass="radio-label" iconClass="radio-icon" v-model="RegisterValue" labelRight/>
 
     <!-- 按钮 -->
     <mu-raised-button label="注册" class="register-button" @click="goHome"/>
@@ -27,7 +27,7 @@
     export default {
         data() {
             return {
-                value:''
+                RegisterValue:''
             }
         },
         methods: {
